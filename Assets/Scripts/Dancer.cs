@@ -7,36 +7,50 @@ public sealed class Dancer : MonoBehaviour
     private FloorTiles floor = null;
 
     [SerializeField]
-    private float maxDistanceFactor = 1;
+    private Dancers dancers = null;
+
+    [SerializeField, Range(0.01f, 2)]
+    public float maxDistanceFactor = 1;
 
     [SerializeField]
     private AnimationCurve weightCurve = null;
 
-    [SerializeField]
-    private float maxWeightFactor = 1;
+    [SerializeField, Range(0.01f, 2)]
+    public float maxWeightFactor = 1;
 
-    private float MaxDistance => maxDistanceFactor * math.length(transform.localScale);
+    private float MaxDistance => maxDistanceFactor * (0.9f + 0.1f * math.length(transform.localScale));
 
-    private float MaxWeight => maxWeightFactor * math.length(transform.localScale);
+    private float MaxWeight => maxWeightFactor * (0.9f + 0.1f * math.length(transform.localScale));
 
     private void Start()
     {
         floor = FindObjectOfType<FloorTiles>();
+        dancers = FindObjectOfType<Dancers>();
+        dancers.Add(this);
+    }
+
+    private void OnDestroy()
+    {
+        if (dancers != null)
+        {
+            dancers.Remove(this);
+        }
     }
 
     private void Update()
     {
+        var weigthMap = Map.Linear((0, MaxDistance), (0, MaxWeight));
+        var feetsPosition = new float3(transform.position - transform.lossyScale / 2).xz;
+
         foreach (var tile in floor.Tiles)
         {
-            float3 feetsPosition = tile.transform.position - tile.transform.lossyScale / 2;
-            float distance = math.distance(new float3(transform.position).xz, feetsPosition.xz);
-            if (distance <= MaxDistance)
-            {
-                floor.SetVisible(tile);
-            }
+            float distance = math.distance(feetsPosition, new float3(tile.transform.position).xz);
 
-            float depth = weightCurve.Evaluate(distance / MaxDistance) * MaxWeight;
+            float depth = weightCurve.Evaluate(weigthMap[distance]);
             floor.SetDepth(tile, depth);
         }
+
+        float2 distances = feetsPosition - new float3(floor.transform.position).xy;
+        floor.AddDancerPosition(distances);
     }
 }

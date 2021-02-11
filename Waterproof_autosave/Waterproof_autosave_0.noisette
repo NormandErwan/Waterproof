@@ -1,0 +1,294 @@
+{
+  "metaData": {
+    "version": "1.7.6",
+    "versionNumber": 67334
+  },
+  "projectSettings": {
+    "containers": {
+      "dashboardSettings": {
+      }
+    }
+  },
+  "layout": {
+    "mainLayout": {
+      "type": 1,
+      "width": 1536,
+      "height": 791,
+      "direction": 2,
+      "shifters": [
+        {
+          "type": 1,
+          "width": 1536,
+          "height": 791,
+          "direction": 2,
+          "shifters": [
+            {
+              "type": 1,
+              "width": 1536,
+              "height": 471,
+              "direction": 1,
+              "shifters": [
+                {
+                  "type": 1,
+                  "width": 307,
+                  "height": 471,
+                  "direction": 2,
+                  "shifters": [
+                    {
+                      "type": 0,
+                      "width": 307,
+                      "height": 242,
+                      "currentContent": "Modules",
+                      "tabs": [
+                        {
+                          "name": "Modules"
+                        }
+                      ]
+                    },
+                    {
+                      "type": 0,
+                      "width": 307,
+                      "height": 222,
+                      "currentContent": "Custom Variables",
+                      "tabs": [
+                        {
+                          "name": "Custom Variables"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": 0,
+                  "width": 789,
+                  "height": 471,
+                  "currentContent": "State Machine",
+                  "tabs": [
+                    {
+                      "name": "State Machine"
+                    },
+                    {
+                      "name": "Dashboard"
+                    },
+                    {
+                      "name": "Module Router"
+                    },
+                    {
+                      "name": "Morpher"
+                    }
+                  ]
+                },
+                {
+                  "type": 0,
+                  "width": 428,
+                  "height": 471,
+                  "currentContent": "Inspector",
+                  "tabs": [
+                    {
+                      "name": "Inspector"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": 1,
+              "width": 1536,
+              "height": 313,
+              "direction": 1,
+              "shifters": [
+                {
+                  "type": 0,
+                  "width": 178,
+                  "height": 313,
+                  "currentContent": "Sequences",
+                  "tabs": [
+                    {
+                      "name": "Sequences"
+                    }
+                  ]
+                },
+                {
+                  "type": 0,
+                  "width": 872,
+                  "height": 313,
+                  "currentContent": "Sequence Editor",
+                  "tabs": [
+                    {
+                      "name": "Sequence Editor"
+                    }
+                  ]
+                },
+                {
+                  "type": 0,
+                  "width": 474,
+                  "height": 313,
+                  "currentContent": "Logger",
+                  "tabs": [
+                    {
+                      "name": "Help"
+                    },
+                    {
+                      "name": "Logger"
+                    },
+                    {
+                      "name": "Warnings"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "windows": null
+  },
+  "modules": {
+    "items": [
+      {
+        "niceName": "OSC",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "oscInput": {
+              "parameters": [
+                {
+                  "value": 12010,
+                  "hexMode": false,
+                  "controlAddress": "/localPort"
+                }
+              ]
+            },
+            "oscOutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": "127.0.0.1",
+                      "controlAddress": "/remoteHost"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                }
+              ]
+            },
+            "pass_through": {
+            }
+          }
+        },
+        "values": {
+          "parameters": [
+            {
+              "value": 0.0,
+              "controlAddress": "/_BASSBUT",
+              "type": "Float",
+              "niceName": "/BASSBUT",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_BASSBUT"
+            },
+            {
+              "value": 0.0,
+              "controlAddress": "/_BOOTH",
+              "type": "Float",
+              "niceName": "/BOOTH",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_BOOTH"
+            },
+            {
+              "value": 0.0,
+              "controlAddress": "/_BUTTOM",
+              "type": "Float",
+              "niceName": "/BUTTOM",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_BUTTOM"
+            },
+            {
+              "value": 0.0,
+              "controlAddress": "/_ONOFF",
+              "type": "Float",
+              "niceName": "/ONOFF",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_ONOFF"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "states": {
+    "items": [
+      {
+        "parameters": [
+          {
+            "value": [
+              -139.0,
+              -128.0
+            ],
+            "controlAddress": "/viewUIPosition"
+          },
+          {
+            "value": [
+              250.0,
+              200.0
+            ],
+            "controlAddress": "/viewUISize"
+          },
+          {
+            "value": true,
+            "controlAddress": "/active"
+          }
+        ],
+        "niceName": "State",
+        "type": "State",
+        "processors": {
+          "items": [
+            {
+              "niceName": "Mapping",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "im": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "",
+                        "ghostValue": "/modules/osc/values/_crossfader",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "Input",
+                    "type": "BaseItem"
+                  }
+                ]
+              },
+              "filters": {
+              },
+              "outputs": {
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

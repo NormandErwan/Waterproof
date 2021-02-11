@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Augmenta;
 using UnityEngine;
+using UnityEngine.Events;
 using Unity.Mathematics;
+using System.Collections;
 
 public sealed class FloorTiles : MonoBehaviour
 {
@@ -14,14 +16,29 @@ public sealed class FloorTiles : MonoBehaviour
     private float3 tileSize = new float3(1);
 
     [SerializeField]
+    private AnimationCurve tileSizeFactorCurve = null;
+
+    [SerializeField]
     private float2 tileMargin = 0.1f * new float2(1);
 
     [SerializeField]
     private Transform tilePrefab = null;
 
-    private HashSet<Transform> visibles = new HashSet<Transform>();
+    [SerializeField]
+    private Modes mode = Modes.Distance;
+
+    [SerializeField]
+    private AnimationCurve inclinationCurve = null;
+
+    private float oldTileSizeFactor = 1;
+    private float2 inclination = float2.zero;
+
     private Dictionary<Transform, float> depths = new Dictionary<Transform, float>();
     private Pool<Transform> tilesPool;
+
+    public Dictionary<float2, Transform> Tiles2 = new Dictionary<float2, Transform>();
+
+    private List<Coroutine> rotations = new List<Coroutine>();
 
     public IEnumerable<Transform> Tiles => tilesPool.Actives;
 
@@ -46,25 +63,68 @@ public sealed class FloorTiles : MonoBehaviour
         UpdateTiles();
     }
 
-    public void SetVisible(Transform tile)
+    private float oldModeValue = 0;
+
+    public void SetNextMode(float value)
     {
-        visibles.Add(tile);
+        if (value != oldModeValue)
+        {
+            if (value != 0)
+            {
+                mode = mode.Next();
+                depths.Clear();
+                UpdateTiles();
+            }
+            oldModeValue = value;
+        }
+    }
+
+    public void Pulse(float value)
+    {
+        if (value > 0)
+        {
+
+        }
+    }
+
+    public void SetSizeFactor(float factor)
+    {
+        if (oldTileSizeFactor != factor)
+        {
+            tileSize = tileSizeFactorCurve.Evaluate(factor);
+            OnValidate();
+        }
     }
 
     public void SetDepth(Transform tile, float depth)
     {
-        if (!depths.TryGetValue(tile, out float value))
+        if (mode == Modes.Distance)
         {
-            value = DefaultDepth;
+            if (!depths.TryGetValue(tile, out float value))
+            {
+                value = DefaultDepth;
+            }
+            depths[tile] = math.max(value, depth);
         }
-        depths[tile] = math.max(value, depth);
+    }
+
+    public void AddDancerPosition(float2 distances)
+    {
+        if (mode == Modes.Inclination)
+        {
+            inclination += inclinationCurve.Evaluate(distances);
+        }
     }
 
     private void ClearTiles()
     {
-        visibles.Clear();
-        UpdateTiles();
+        depths.Clear();
+        foreach (var tile in tilesPool.Actives)
+        {
+            tile.gameObject.SetActive(false);
+        }
         tilesPool.ReturnAll();
+        Tiles2.Clear();
     }
 
     private void InitTiles()
@@ -79,8 +139,13 @@ public sealed class FloorTiles : MonoBehaviour
             for (int y = 0; y <= tileCount.y; y++)
             {
                 var tile = tilesPool.Get();
+                var coordinates = new float2(x, y);
+                Tiles2.Add(coordinates, tile);
+
+                tile.gameObject.SetActive(true);
+
                 tile.transform.parent = transform;
-                tile.transform.localPosition = new float3(x, y, 0) * totalTileSize - origin;
+                tile.transform.localPosition = new float3(coordinates, 0) * totalTileSize - origin;
                 tile.transform.localEulerAngles = float3.zero;
                 tile.transform.localScale = tileSize;
             }
@@ -91,16 +156,32 @@ public sealed class FloorTiles : MonoBehaviour
     {
         foreach (var tile in Tiles)
         {
-            tile.gameObject.SetActive(visibles.Contains(tile));
-
             if (!depths.TryGetValue(tile, out float depth))
             {
-                depth = DefaultDepth;
+                depth = 1;
             }
-            tile.SetLocalPositionZ(depth);
+            tile.transform.localScale = tileSize * depth;
+            //tile.SetLocalPositionZ(depth);
+
+            tile.transform.localEulerAngles = new float3(inclination.y, inclination.x, 0);
         }
 
-        visibles.Clear();
         depths.Clear();
+        inclination = float2.zero;
+    }
+
+    private IEnumerator Rotate(Transform tile)
+    {
+        while (true)
+        {
+            //tile.Rotate(, Space.Self);
+            yield return null;
+        }
+    }
+
+    public enum Modes
+    {
+        Distance,
+        Inclination
     }
 }

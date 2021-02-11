@@ -4,3 +4,6 @@
 [submodule "Assets/Plugins/Augmenta"]
 	path = Assets/Plugins/Augmenta
 	url = https://github.com/Theoriz/AugmentaUnity
+[submodule "Assets/Plugins/XPostProcessing"]
+	path = Assets/Plugins/XPostProcessing
+	url = https://github.com/QianMo/X-PostProcessing-Library.git

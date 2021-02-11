@@ -48,7 +48,38 @@ MonoBehaviour:
     x: 0.3
     y: 0.3
     z: 0.3
+  tileSizeFactorCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0.9
+      outSlope: 0.9
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.9
+      outSlope: 0.9
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   tileMargin:
-    x: 0.01
-    y: 0.01
+    x: 0.02
+    y: 0.02
   tilePrefab: {fileID: 1418842685177868316, guid: 6823913fdffc60d409ff14de84475775, type: 3}
+  mode: 0
+  inclinationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
