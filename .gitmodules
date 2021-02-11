@@ -1,0 +1,6 @@
+[submodule "Assets/Plugins/SharedTexture"]
+	path = Assets/Plugins/SharedTexture
+	url = https://github.com/Lyptik/Shared-Texture-Unity.git
+[submodule "Assets/Plugins/Augmenta"]
+	path = Assets/Plugins/Augmenta
+	url = https://github.com/Theoriz/AugmentaUnity
