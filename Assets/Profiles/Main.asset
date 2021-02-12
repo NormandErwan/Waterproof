@@ -1,6 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4500907630160516446
+--- !u!114 &-6531978013895791791
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc23458a58ff384c82bd27e09aa0cc6, type: 3}
+  m_Name: PixelizeQuad
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  pixelSize:
+    overrideState: 1
+    value: 0.01
+  useAutoScreenRatio:
+    overrideState: 0
+    value: 1
+  pixelRatio:
+    overrideState: 0
+    value: 1
+  pixelScaleX:
+    overrideState: 1
+    value: 0.2
+  pixelScaleY:
+    overrideState: 1
+    value: 0.2
+--- !u!114 &-4537836450506590045
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18,7 +49,26 @@ MonoBehaviour:
     value: 1
   HueDegree:
     overrideState: 1
-    value: 49.606297
+    value: 20
+--- !u!114 &-4500907630160516446
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323a24a5eeee79d4a8bc92be48fd79bc, type: 3}
+  m_Name: ColorAdjustmentHue
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  HueDegree:
+    overrideState: 1
+    value: 158
 --- !u!114 &-4381862429124216893
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -68,6 +118,28 @@ MonoBehaviour:
   BlockVisualizeDebug:
     overrideState: 0
     value: 0
+--- !u!114 &-4044570202298982196
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9acc76ac9d8d4e4a8d7294a5bd00c85, type: 3}
+  m_Name: GlitchImageBlockV3
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  Speed:
+    overrideState: 1
+    value: 10
+  BlockSize:
+    overrideState: 1
+    value: 0
 --- !u!114 &-498577819725141169
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -80,13 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc23458a58ff384c82bd27e09aa0cc6, type: 3}
   m_Name: PixelizeQuad
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 0
   pixelSize:
     overrideState: 1
-    value: 0.01
+    value: 1
   useAutoScreenRatio:
     overrideState: 0
     value: 1
@@ -112,11 +184,9 @@ MonoBehaviour:
   m_Name: Main
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: -498577819725141169}
-  - {fileID: -4381862429124216893}
-  - {fileID: -4500907630160516446}
-  - {fileID: 7573858792483326960}
-  - {fileID: 3276662731192125554}
+  - {fileID: -4044570202298982196}
+  - {fileID: -6531978013895791791}
+  - {fileID: -4537836450506590045}
 --- !u!114 &3276662731192125554
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -129,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd02f4c3282cc343bb7d404d538e601, type: 3}
   m_Name: ColorAdjustmentBrightness
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -148,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5ed3169e7d36b4cadb5c5feaf040ff, type: 3}
   m_Name: ColorAdjustmentSaturation
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1

@@ -12,6 +12,7 @@ public sealed class FloorTiles : MonoBehaviour
     [SerializeField]
     private AugmentaManager augmentaManager = null;
 
+    [Header("Tiles")]
     [SerializeField]
     private float3 tileSize = new float3(1);
 
@@ -24,14 +25,18 @@ public sealed class FloorTiles : MonoBehaviour
     [SerializeField]
     private Transform tilePrefab = null;
 
+    [Header("Modes")]
     [SerializeField]
     private Modes mode = Modes.Distance;
 
     [SerializeField]
-    private AnimationCurve inclinationCurve = null;
+    private AnimationCurve inclinationTilesCurve = null;
+
+    [SerializeField]
+    private AnimationCurve inclinationFloorCurve = null;
 
     private float oldTileSizeFactor = 1;
-    private float2 inclination = float2.zero;
+    private float2 dancerPositions = float2.zero;
 
     private Dictionary<Transform, float> depths = new Dictionary<Transform, float>();
     private Pool<Transform> tilesPool;
@@ -110,9 +115,9 @@ public sealed class FloorTiles : MonoBehaviour
 
     public void AddDancerPosition(float2 distances)
     {
-        if (mode == Modes.Inclination)
+        if (mode == Modes.InclinationTiles)
         {
-            inclination += inclinationCurve.Evaluate(distances);
+            dancerPositions += distances;
         }
     }
 
@@ -143,6 +148,7 @@ public sealed class FloorTiles : MonoBehaviour
                 Tiles2.Add(coordinates, tile);
 
                 tile.gameObject.SetActive(true);
+                tile.gameObject.layer = gameObject.layer;
 
                 tile.transform.parent = transform;
                 tile.transform.localPosition = new float3(coordinates, 0) * totalTileSize - origin;
@@ -163,11 +169,15 @@ public sealed class FloorTiles : MonoBehaviour
             tile.transform.localScale = tileSize * depth;
             //tile.SetLocalPositionZ(depth);
 
-            tile.transform.localEulerAngles = new float3(inclination.y, inclination.x, 0);
+            var tileRot = mode == Modes.InclinationTiles ? inclinationTilesCurve.Evaluate(dancerPositions) : float2.zero;
+            tile.transform.localEulerAngles = new float3(tileRot.y, -tileRot.x, 0);
         }
 
+        var floorRot = mode == Modes.InclinationFloor ? inclinationFloorCurve.Evaluate(dancerPositions) : float2.zero;
+        transform.localEulerAngles = new float3(floorRot.y, 0, -floorRot.x);
+
         depths.Clear();
-        inclination = float2.zero;
+        dancerPositions = float2.zero;
     }
 
     private IEnumerator Rotate(Transform tile)
@@ -182,6 +192,7 @@ public sealed class FloorTiles : MonoBehaviour
     public enum Modes
     {
         Distance,
-        Inclination
+        InclinationTiles,
+        InclinationFloor
     }
 }
