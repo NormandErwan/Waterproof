@@ -75,7 +75,7 @@ MonoBehaviour:
     value: 1
   HueDegree:
     overrideState: 1
-    value: 154.48817
+    value: 88
 --- !u!114 &-4500907630160516446
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -162,10 +162,10 @@ MonoBehaviour:
     value: 1
   Speed:
     overrideState: 1
-    value: 10
+    value: 20
   BlockSize:
     overrideState: 1
-    value: 3
+    value: 0
 --- !u!114 &-581441014515802628
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -184,7 +184,7 @@ MonoBehaviour:
     value: 1
   brightness:
     overrideState: 1
-    value: 0.21
+    value: -0.42
 --- !u!114 &-498577819725141169
 MonoBehaviour:
   m_ObjectHideFlags: 3
