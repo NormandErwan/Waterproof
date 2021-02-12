@@ -38,6 +38,9 @@ public sealed class FloorTiles : MonoBehaviour
     [SerializeField]
     private AnimationCurve inclinationFloorCurve = null;
 
+    [SerializeField]
+    private Glitchs glitchs = null;
+
     private float oldTileSizeFactor = 1;
     private float2 dancerPositions = float2.zero;
     private Modes Mode => sequence[mode];
@@ -84,10 +87,18 @@ public sealed class FloorTiles : MonoBehaviour
         {
             if (value != 0)
             {
+                var previousMode = Mode;
+
                 //mode = mode.Next();
                 mode = sequence.GetNextIndex(mode);
                 ClearUpdateTiles();
                 UpdateTiles();
+
+                if (Mode == Modes.Fixed || previousMode == Modes.Fixed)
+                {
+                    glitchs.Pixelize(127);
+                    glitchs.Pixelize(0);
+                }
             }
             oldModeValue = value;
         }

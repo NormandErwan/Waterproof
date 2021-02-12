@@ -41,10 +41,10 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   pixelSize:
     overrideState: 1
-    value: 0.6
+    value: 0.655
   useAutoScreenRatio:
     overrideState: 0
     value: 1
@@ -75,7 +75,7 @@ MonoBehaviour:
     value: 1
   HueDegree:
     overrideState: 1
-    value: 88
+    value: -180
 --- !u!114 &-4500907630160516446
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -159,13 +159,96 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
+    value: 0
+  Speed:
+    overrideState: 1
+    value: 38.1
+  BlockSize:
+    overrideState: 1
+    value: 18.9
+--- !u!114 &-3886191444470573707
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943c09b621e7d8e489394b2b0b0dc2c2, type: 3}
+  m_Name: GlitchImageBlock
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  Fade:
+    overrideState: 1
     value: 1
   Speed:
     overrideState: 1
-    value: 20
-  BlockSize:
+    value: 0.5
+  Amount:
     overrideState: 1
+    value: 5.92
+  BlockLayer1_U:
+    overrideState: 0
+    value: 9
+  BlockLayer1_V:
+    overrideState: 0
+    value: 9
+  BlockLayer2_U:
+    overrideState: 0
+    value: 5
+  BlockLayer2_V:
+    overrideState: 0
+    value: 5
+  BlockLayer1_Indensity:
+    overrideState: 0
+    value: 8
+  BlockLayer2_Indensity:
+    overrideState: 0
+    value: 4
+  RGBSplitIndensity:
+    overrideState: 0
+    value: 0.5
+  BlockVisualizeDebug:
+    overrideState: 0
     value: 0
+--- !u!114 &-1402530324121098726
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
+  m_Name: LensDistortion
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: -84
+  intensityX:
+    overrideState: 0
+    value: 1
+  intensityY:
+    overrideState: 0
+    value: 1
+  centerX:
+    overrideState: 0
+    value: 0
+  centerY:
+    overrideState: 0
+    value: 0
+  scale:
+    overrideState: 0
+    value: 1
 --- !u!114 &-581441014515802628
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -184,7 +267,7 @@ MonoBehaviour:
     value: 1
   brightness:
     overrideState: 1
-    value: -0.42
+    value: -0.1
 --- !u!114 &-498577819725141169
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -235,6 +318,9 @@ MonoBehaviour:
   - {fileID: -581441014515802628}
   - {fileID: 5681208416272956748}
   - {fileID: -8750773742483818683}
+  - {fileID: 5837447215923284187}
+  - {fileID: -1402530324121098726}
+  - {fileID: -3886191444470573707}
 --- !u!114 &3276662731192125554
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -273,6 +359,53 @@ MonoBehaviour:
   saturation:
     overrideState: 1
     value: 0.85
+--- !u!114 &5837447215923284187
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 2
+  threshold:
+    overrideState: 0
+    value: 1
+  softKnee:
+    overrideState: 0
+    value: 0.5
+  clamp:
+    overrideState: 0
+    value: 65472
+  diffusion:
+    overrideState: 0
+    value: 7
+  anamorphicRatio:
+    overrideState: 0
+    value: 0
+  color:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 0
+    value: 0
+  dirtTexture:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 0
+    value: 0
 --- !u!114 &7573858792483326960
 MonoBehaviour:
   m_ObjectHideFlags: 3

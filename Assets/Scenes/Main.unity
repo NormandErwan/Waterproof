@@ -177,23 +177,72 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  imageBlockCurve:
+  imageBlockSpeedCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 10
-      outSlope: 10
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  imageBlockSizeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 10
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  light: {fileID: 705507994}
+  brightnessCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 10
-      inSlope: 10
-      outSlope: 10
+      value: 2
+      inSlope: 2
+      outSlope: 2
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -320,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1772874338564897810, guid: 3893de5ef0f42a048bd9142972e01291, type: 3}
       propertyPath: _inputPort
-      value: 12001
+      value: 12000
       objectReference: {fileID: 0}
     - target: {fileID: 1772874338564897810, guid: 3893de5ef0f42a048bd9142972e01291, type: 3}
       propertyPath: augmentaId
@@ -585,7 +634,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 163971624}
           m_TargetAssemblyTypeName: Glitchs, Assembly-CSharp
-          m_MethodName: Pixelize
+          m_MethodName: SetBrightness
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -629,11 +678,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Address: /FAD
+  - Address: /BUTG
     MaxValue: 127
     Event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 163971624}
+          m_TargetAssemblyTypeName: Glitchs, Assembly-CSharp
+          m_MethodName: Pixelize
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &1245615037
 Transform:
   m_ObjectHideFlags: 0
@@ -679,6 +740,18 @@ PrefabInstance:
       propertyPath: augmentaManager
       value: 
       objectReference: {fileID: 533638290}
+    - target: {fileID: 4667622104088157463, guid: 501ce00b90101634cbb6b7d73acf1b1e, type: 3}
+      propertyPath: autoOutputOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667622104088157463, guid: 501ce00b90101634cbb6b7d73acf1b1e, type: 3}
+      propertyPath: _videoOutputOffset.x
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667622104088157463, guid: 501ce00b90101634cbb6b7d73acf1b1e, type: 3}
+      propertyPath: _videoOutputOffset.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4667622104088157463, guid: 501ce00b90101634cbb6b7d73acf1b1e, type: 3}
       propertyPath: autoOutputSizeInMeters
       value: 0
@@ -1135,6 +1208,10 @@ PrefabInstance:
       propertyPath: mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1355411500147472885, guid: 05fe4c023b646b842ade5b2529d292fa, type: 3}
+      propertyPath: glitchs
+      value: 
+      objectReference: {fileID: 163971624}
     - target: {fileID: 1355411500147472885, guid: 05fe4c023b646b842ade5b2529d292fa, type: 3}
       propertyPath: augmentaManager
       value: 
