@@ -45,13 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 0}
   dancers: {fileID: 0}
-  maxDistanceFactor: 1
+  maxDistanceFactor: 0.7
   weightCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -70,4 +70,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxWeightFactor: 1.025
+  maxWeightFactor: 0.851

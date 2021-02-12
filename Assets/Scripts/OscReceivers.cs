@@ -8,7 +8,7 @@ namespace Waterproof
 {
     public sealed class OscReceivers : MonoBehaviour
     {
-        private const string ReceiverId = "Waterproof-Receivers";
+        private const string ReceiverId = "AcidScratch-Receivers";
 
         public event Augmenta.UnityOSC.OSCReceiver.MessageReceived MessageReceived;
 

@@ -179,7 +179,25 @@ MonoBehaviour:
     m_RotationOrder: 4
   imageBlockCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 10
+      outSlope: 10
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 10
+      inSlope: 10
+      outSlope: 10
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -256,17 +274,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.997927
-      outSlope: 1.997927
+      inSlope: 2
+      outSlope: 2
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0010376
+      time: 1
       value: 2
-      inSlope: 1.997927
-      outSlope: 1.997927
+      inSlope: 2
+      outSlope: 2
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -306,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1772874338564897810, guid: 3893de5ef0f42a048bd9142972e01291, type: 3}
       propertyPath: augmentaId
-      value: AcidAtari
+      value: AcidScratch
       objectReference: {fileID: 0}
     - target: {fileID: 1772874338564897810, guid: 3893de5ef0f42a048bd9142972e01291, type: 3}
       propertyPath: showSceneDebug
@@ -543,7 +561,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Address: /BASSBUT
+  - Address: /BOOTH
     MaxValue: 127
     Event:
       m_PersistentCalls:
@@ -560,7 +578,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Address: /BOOTH
+  - Address: /BASSBUT
     MaxValue: 127
     Event:
       m_PersistentCalls:
@@ -594,6 +612,28 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - Address: /MID
+    MaxValue: 127
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 258456556}
+          m_TargetAssemblyTypeName: Dancers, Assembly-CSharp
+          m_MethodName: SetWeightFactor
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Address: /FAD
+    MaxValue: 127
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!4 &1245615037
 Transform:
   m_ObjectHideFlags: 0
@@ -1169,11 +1209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1355411500147472885, guid: 05fe4c023b646b842ade5b2529d292fa, type: 3}
       propertyPath: inclinationFloorCurve.m_Curve.Array.data[0].value
-      value: -15
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 1355411500147472885, guid: 05fe4c023b646b842ade5b2529d292fa, type: 3}
       propertyPath: inclinationFloorCurve.m_Curve.Array.data[1].value
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1355411500147472885, guid: 05fe4c023b646b842ade5b2529d292fa, type: 3}
       propertyPath: inclinationTilesCurve.m_Curve.Array.data[0].value

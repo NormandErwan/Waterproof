@@ -115,7 +115,7 @@ public sealed class FloorTiles : MonoBehaviour
 
     public void AddDancerPosition(float2 distances)
     {
-        if (mode == Modes.InclinationTiles)
+        if (mode == Modes.InclinationTiles || mode == Modes.InclinationFloor)
         {
             dancerPositions += distances;
         }
@@ -174,7 +174,7 @@ public sealed class FloorTiles : MonoBehaviour
         }
 
         var floorRot = mode == Modes.InclinationFloor ? inclinationFloorCurve.Evaluate(dancerPositions) : float2.zero;
-        transform.localEulerAngles = new float3(floorRot.y, 0, -floorRot.x);
+        transform.localEulerAngles = new float3(floorRot.y, -floorRot.x, 0);
 
         depths.Clear();
         dancerPositions = float2.zero;

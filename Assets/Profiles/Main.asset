@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8750773742483818683
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  spectralLut:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  intensity:
+    overrideState: 1
+    value: 0.2
+  fastMode:
+    overrideState: 1
+    value: 1
 --- !u!114 &-6531978013895791791
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -18,7 +44,7 @@ MonoBehaviour:
     value: 1
   pixelSize:
     overrideState: 1
-    value: 0.01
+    value: 0.6
   useAutoScreenRatio:
     overrideState: 0
     value: 1
@@ -49,7 +75,7 @@ MonoBehaviour:
     value: 1
   HueDegree:
     overrideState: 1
-    value: 0
+    value: 154.48817
 --- !u!114 &-4500907630160516446
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -139,7 +165,26 @@ MonoBehaviour:
     value: 10
   BlockSize:
     overrideState: 1
-    value: 0
+    value: 3
+--- !u!114 &-581441014515802628
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd02f4c3282cc343bb7d404d538e601, type: 3}
+  m_Name: ColorAdjustmentBrightness
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  brightness:
+    overrideState: 1
+    value: 0.21
 --- !u!114 &-498577819725141169
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -187,6 +232,9 @@ MonoBehaviour:
   - {fileID: -4044570202298982196}
   - {fileID: -6531978013895791791}
   - {fileID: -4537836450506590045}
+  - {fileID: -581441014515802628}
+  - {fileID: 5681208416272956748}
+  - {fileID: -8750773742483818683}
 --- !u!114 &3276662731192125554
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -206,6 +254,25 @@ MonoBehaviour:
   brightness:
     overrideState: 1
     value: 0.28
+--- !u!114 &5681208416272956748
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5ed3169e7d36b4cadb5c5feaf040ff, type: 3}
+  m_Name: ColorAdjustmentSaturation
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  saturation:
+    overrideState: 1
+    value: 0.85
 --- !u!114 &7573858792483326960
 MonoBehaviour:
   m_ObjectHideFlags: 3
